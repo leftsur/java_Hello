@@ -1,9 +1,13 @@
 pipeline {
     agent any
     stages {
-        stage('Stage1') {
+        stage('File compilation') {
             steps {
                 javac Hello.java
+            }
+        }
+        stage('File execution') {
+            steps {
                 java Hello
             }
         }
