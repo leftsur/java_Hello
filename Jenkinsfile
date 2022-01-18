@@ -1,14 +1,12 @@
 pipeline {
     agent any
+    tools {
+        maven 'maven-3.8'
+    }
     stages {
-        stage('File compilation') {
+        stage('Build') {
             steps {
-                javac Hello.java
-            }
-        }
-        stage('File execution') {
-            steps {
-                java Hello
+                sh 'mvn clean package'
             }
         }
     }
